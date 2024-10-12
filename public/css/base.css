@@ -1,0 +1,129 @@
+/******* Change Box Model ***************/
+
+body{
+  font-family: 'KoHo', sans-serif;
+  font-size: 18px;  
+}
+
+header{
+  color: darkblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem;
+}
+
+header a{
+  text-decoration: none;
+}
+
+/* Style the navbar container */
+.navbar {
+  background-color: rgb(8, 8, 84); /* Background color for navbar */
+  padding: 10px 0;
+  text-align: center; /* Centers content */
+}
+
+/* Style the navigation menu list */
+.nav-menu {
+  list-style-type: none; /* Removes bullet points */
+  margin: 0;
+  padding: 0;
+  display: flex; /* Makes the menu horizontal */
+  justify-content: center; /* Centers items horizontally */
+  gap: 20px; /* Adds spacing between menu items */
+}
+
+/* Style the individual links */
+.nav-menu li a {
+  text-decoration: none; /* Removes underline from links */
+  color: white; /* Text color */
+  padding: 10px 15px; /* Adds padding around links */
+  font-size: 18px; /* Adjust font size */
+}
+
+.nav-menu li a:hover {
+  background-color: #555; /* Optional hover effect */
+  border-radius: 5px; /* Rounded corners on hover */
+}
+
+.delorean {
+	margin: 10px auto;
+	position: relative;
+	border: 1px solid rgba(0,0,0,.1);
+	height: 300px;
+}
+
+.delorean img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.deloreanlabel {
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	background: radial-gradient(#fff, #4D5B97);
+	border: 1px solid rgba(0,0,0,.75);
+	padding: 1.5rem;
+	box-shadow: 0 0 3rem #fff;
+	opacity: 0.75;
+}
+
+.deloreanlabel p {
+	margin: 0;
+	padding: .25rem;
+	font-weight: 700;
+	font-size: 2rem;
+	font-family:'KoHo', serif;
+}
+
+/* Upgrades Section */
+.upgrades {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.upgrades h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.upgrade-items {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap; 
+}
+
+.upgrade-item {
+  background-color: #f0f0f0;
+  padding: 15px;
+  text-align: center;
+  width: 120px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.upgrade-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.upgrade-item a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #666;
+}
