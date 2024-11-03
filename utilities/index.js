@@ -35,7 +35,7 @@ Util.buildClassificationGrid = async function(data){
       grid += '<li>'
       grid +=  '<a href="../../inv/detail/'+ vehicle.inv_id 
       + '" title="View ' + vehicle.inv_make + ' '+ vehicle.inv_model 
-      + 'details"><img src="' + vehicle.inv_thumbnail 
+      + ' details"><img src="' + vehicle.inv_thumbnail 
       +'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model 
       +' on CSE Motors" /></a>'
       grid += '<div class="namePrice">'
@@ -55,6 +55,21 @@ Util.buildClassificationGrid = async function(data){
     grid += '<p class="notice">Sorry, no matching vehicles could be found.</p>'
   }
   return grid
+}
+
+/* **************************************
+* Build the Details view HTML
+* ************************************ */
+
+Util.buildDetailsGrid = async function (data) {
+  let inv
+  if(data.length > 0){
+    grid += '<p>' + data.inv_make + '</p>'
+    inv += '<img src="' + data.inv_image
+    +'" alt="Image of' + data.inv_make + ' ' + data.inv_model
+    + ' on CSE Motors" />'
+  }
+  return inv
 }
 
 /* ****************************************
