@@ -127,7 +127,7 @@ header a{
   font-size: 14px;
   color: #666;
 }
-/* styling the inventory pages */
+/* styling the inventory calssification pages */
 
 #inv-display{
   display: grid;
@@ -150,4 +150,39 @@ header a{
   box-shadow: 0 0 30px #777;
   height: 200px;
   border: 1px solid #333;
+}
+
+/* Styling the inventory details page */
+
+#details {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+}
+
+#details img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+#details p {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+#details span {
+  display: block;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+#details p:first-of-type {
+  font-size: 1.2em;
+  font-weight: bold;
 }

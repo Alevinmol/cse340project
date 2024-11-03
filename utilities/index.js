@@ -63,12 +63,21 @@ Util.buildClassificationGrid = async function(data){
 
 Util.buildDetailsGrid = async function (data) {
   let inv
-  if(data.length > 0){
-    grid += '<p>' + data.inv_make + '</p>'
-    inv += '<img src="' + data.inv_image
-    +'" alt="Image of' + data.inv_make + ' ' + data.inv_model
+  data.forEach (vehicle => {
+    inv += '<div id="details">'
+    inv += '<img src="' + vehicle.inv_image
+    +'" alt="Image of ' + vehicle.inv_make + ' ' + vehicle.inv_model
     + ' on CSE Motors" />'
-  }
+    inv += '<p>' + vehicle.inv_make + ' ' + vehicle.inv_model
+    + ' details. </p>'
+    inv += '<span>Price: $' 
+    + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</span>'
+    inv += '<p> Description: ' + vehicle.inv_description + '</p>'
+    inv += '<p> Color: ' + vehicle.inv_color + '</p>'
+    inv += '<span>Miles: ' 
+    + new Intl.NumberFormat('en-US').format(vehicle.inv_miles) + '</span>'
+    inv += '</div>'
+  })
   return inv
 }
 
