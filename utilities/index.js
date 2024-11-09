@@ -63,21 +63,19 @@ Util.buildClassificationGrid = async function(data){
 
 Util.buildDetailsGrid = async function (data) {
   let inv
-  data.forEach (vehicle => {
-    inv += '<div id="details">'
-    inv += '<img src="' + vehicle.inv_image
-    +'" alt="Image of ' + vehicle.inv_make + ' ' + vehicle.inv_model
-    + ' on CSE Motors" />'
-    inv += '<p>' + vehicle.inv_make + ' ' + vehicle.inv_model
-    + ' details. </p>'
-    inv += '<span>Price: $' 
-    + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</span>'
-    inv += '<p> Description: ' + vehicle.inv_description + '</p>'
-    inv += '<p> Color: ' + vehicle.inv_color + '</p>'
-    inv += '<span>Miles: ' 
-    + new Intl.NumberFormat('en-US').format(vehicle.inv_miles) + '</span>'
-    inv += '</div>'
-  })
+  inv = '<div id="details">'
+  inv += '<img src="' + data[0].inv_image
+  +'" alt="Image of ' + data[0].inv_make + ' ' + data[0].inv_model
+  + ' on CSE Motors" />'
+  inv += '<p>' + data[0].inv_make + ' ' + data[0].inv_model
+  + ' details. </p>'
+  inv += '<span>Price: $' 
+  + new Intl.NumberFormat('en-US').format(data[0].inv_price) + '</span>'
+  inv += '<p> Description: ' + data[0].inv_description + '</p>'
+  inv += '<p> Color: ' + data[0].inv_color + '</p>'
+  inv += '<span>Miles: ' 
+  + new Intl.NumberFormat('en-US').format(data[0].inv_miles) + '</span>'
+  inv += '</div>'
   return inv
 }
 
