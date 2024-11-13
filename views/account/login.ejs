@@ -1,8 +1,6 @@
 <% if (title) { %>
 <h1><%= title %></h1>
-<% } else { res.redirect('/') } %>
-
-<%- messages() %>
+<% } else { res.redirect('/') } %> <%- messages() %>
 
 <div id="form">
   <form action="">
@@ -11,10 +9,22 @@
         Email
         <input type="email" id="email" name="account_email" required />
       </label>
-      <label for="password">
-        Password
-        <input type="password" id="password" name="account_password" required />
-      </label>
+      <div>
+        <label for="loginpassword">
+          Password
+          <input
+            type="password"
+            id="loginpassword"
+            name="account_password"
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"
+            required
+          />
+        </label>
+        <p>
+          *The password must be at least 12 characters and has at least 1
+          uppercase character, 1 number and 1 special character.
+        </p>
+      </div>
       <button type="submit">LOGIN</button>
       <p>No account?<a href="/account/register"> Register</a></p>
     </fieldset>

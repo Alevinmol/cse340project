@@ -1,12 +1,21 @@
 <% if (title) { %>
 <h1><%= title %></h1>
-<% } else { res.redirect('/') } %>
+<% } else { res.redirect('/') } %> 
 
 <%- messages() %>
+
+<% if (errors) { %>
+  <ul class="notice">
+    <% errors.array().foreach(error => { %>
+      <li><%=error.msg%></li>
+    <% }) %>
+  </ul>
+  <% } %>
 
 <div id="registration">
   <form action="/account/register" method="post">
     <fieldset>
+      <p>All fields are required</p>
       <label for="first name">
         First name
         <input type="text" id="first name" name="account_firstname" required />
@@ -17,12 +26,30 @@
       </label>
       <label for="email">
         Email address
-        <input type="email" id="email" name="account_email" required />
+        <input
+          type="email"
+          id="email"
+          name="account_email"
+          required
+          placeholder="Enter a valid email address"
+        />
       </label>
-      <label for="password">
-        Password
-        <input type="password" id="password" name="account_password" required />
-      </label>
+      <div>
+        <label for="password">
+          Password
+          <input
+            type="password"
+            id="password"
+            name="account_password"
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"
+            required
+          />
+        </label>
+        <p>
+          *The password must be at least 12 characters and has at least 1
+          uppercase character, 1 number and 1 special character.
+        </p>
+      </div>
       <button type="submit">Register</button>
     </fieldset>
   </form>

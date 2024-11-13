@@ -15,6 +15,7 @@ accntCont.buildLogin = async function (req, res, next) {
   res.render("./account/login", {
     title: "Log in",
     nav,
+    errors: null,
   });
 };
 
@@ -25,10 +26,11 @@ accntCont.buildLogin = async function (req, res, next) {
 accntCont.buildRegistration = async function (req, res, next) {
   let nav = await utilities.getNav();
   res.render("./account/register", {
-    title: " Register",
+    title: "Register",
     nav,
-  });
-};
+    errors: null,
+  })
+}
 
 /* ****************************************
  *  Process Registration
@@ -57,12 +59,14 @@ accntCont.registerAccount= async function (req, res) {
     res.status(201).render("account/login", {
       title: "Login",
       nav,
+      errors: null,
     });
   } else {
     req.flash("notice", "Sorry, the registration failed.");
     res.status(501).render("account/register", {
       title: "Registration",
       nav,
+      errors: null,
     });
   }
 }
