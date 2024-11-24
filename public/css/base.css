@@ -3,6 +3,16 @@
 body {
   font-family: "KoHo", sans-serif;
   font-size: 18px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1; 
+  margin-top: 4rem;
 }
 
 header {
@@ -120,8 +130,8 @@ header a {
   font-weight: bold;
 }
 
-.footer {
-  text-align: center;
+footer {
+  text-align: left;
   padding: 20px;
   font-size: 14px;
   color: #666;
@@ -189,13 +199,11 @@ header a {
 /* Style login view */
 
 #form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 70vh;
-  font-family: Arial, sans-serif;
-  background-color: #f3f4f6;
-  margin: 0;
+  margin: 0 auto; /* Center the form horizontally */
+  padding: 2rem;
+  max-width: 100%;
+  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+  overflow: auto; /* Handle overflow gracefully */
 }
 
 #registration {
@@ -280,4 +288,26 @@ form a {
 
 form a:hover {
   text-decoration: underline;
+}
+
+#management-links {
+    display: flex; /* Arrange links horizontally */
+    gap: 20px; /* Space between links */
+    margin: 20px; /* Add space around the section */
+}
+
+#management-links a {
+    text-decoration: none; /* Remove underline from links */
+    padding: 10px 15px; /* Add padding around the text */
+    background-color: #007bff; /* Set a background color (blue) */
+    color: white; /* Set the text color */
+    border-radius: 5px; /* Round the edges */
+    font-family: Arial, sans-serif; /* Set a font */
+    font-size: 16px; /* Set font size */
+    transition: background-color 0.3s ease; /* Add hover effect transition */
+}
+
+#management-links a:hover {
+    background-color: #0056b3; /* Darken background on hover */
+    color: #f8f9fa; /* Change text color slightly */
 }

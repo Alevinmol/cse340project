@@ -18,11 +18,11 @@
       <p>All fields are required</p>
       <label for="first name">
         First name
-        <input type="text" id="first name" name="account_firstname" required />
+        <input type="text" id="first name" name="account_firstname" required value="<%= locals.account_firstname %>"/>
       </label>
       <label for="last name">
         Last name
-        <input type="text" id="last name" name="account_lastname" required />
+        <input type="text" id="last name" name="account_lastname" required value="<%= locals.account_lastname %>"/>
       </label>
       <label for="email">
         Email address
@@ -32,6 +32,7 @@
           name="account_email"
           required
           placeholder="Enter a valid email address"
+          value="<%= locals.account_email %>"
         />
       </label>
       <div>

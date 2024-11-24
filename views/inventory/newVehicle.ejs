@@ -1,0 +1,69 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else { res.redirect('/') } %> 
+    
+ <%- messages() %>
+    
+<% if (errors) { %>
+  <ul class="notice">
+    <% errors.array().forEach(error => { %>
+      <li><%=error.msg%></li>
+    <% }) %>
+  </ul>
+<% } %>
+
+<div id="form">
+  <form action="/inv/newVehicle" method="post">
+    <fieldset>
+      <p>All fields are required</p>
+      <label for="classification list">
+        Classification name
+        <%- classificationList %>
+      </label>
+      <label for="make">
+        Make
+        <input type="text" id="make" name="inv_make" required value="<%= locals.inv_make %>"/>
+      </label>
+      <label for="model">
+        Model
+        <input
+          type="text"
+          id="model"
+          name="inv_model"
+          required
+          value="<%= locals.inv_model %>"
+        />
+      </label>
+      <label for="year">
+        Year
+        <input 
+        type="number" 
+        id="year" 
+        name="inv_year" 
+        min="1886" 
+        max="<%= new Date().getFullYear() %>"
+        required 
+        placeholder="Enter the car year"
+        value="<%= locals.inv_make %>"/>
+        <small>The year must be between 1886 and <%= new Date().getFullYear() %>.</small>
+      </label>
+      <label for="description">
+        Description
+        <input type="text" id="description" name="inv_description" required value="<%= locals.inv_description %>"/>
+      </label>
+      <label for="price">
+        Price
+        <input type="number" id="price" name="inv_price" required placeholder="Enter price without comas" value="<%= locals.inv_price %>"/>
+      </label>
+      <label for="miles">
+        Miles
+        <input type="number" id="make" name="inv_make" required placeholder="Enter miles without comas" value="<%= locals.inv_miles %>"/>
+      </label>
+      <label for="color">
+        Color
+        <input type="text" id="color" name="inv_color" required value="<%= locals.inv_color %>"/>
+      </label>
+      <button type="submit">Submit</button>
+    </fieldset>
+  </form>
+</div>
