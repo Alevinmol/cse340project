@@ -199,11 +199,13 @@ footer {
 /* Style login view */
 
 #form {
-  margin: 0 auto; /* Center the form horizontally */
+  display: flex;
+  margin: auto; 
   padding: 2rem;
   max-width: 100%;
   box-sizing: border-box; /* Ensure padding doesn't cause overflow */
-  overflow: auto; /* Handle overflow gracefully */
+  overflow: auto;
+  justify-content: center;
 }
 
 #registration {

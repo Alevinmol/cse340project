@@ -80,4 +80,4 @@ async function checkExistingClassification(classification_name){
   }
 }
 
-module.exports = {getClassifications, getInventoryByClassificationId, getInventoryByInventoryId, addNewClassification, checkExistingClassification};
+module.exports = {getClassifications, getInventoryByClassificationId, getInventoryByInventoryId, addNewClassification, checkExistingClassification,addVehicle};

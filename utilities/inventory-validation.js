@@ -113,10 +113,12 @@ validate.checkVehicleData = async (req, res, next) => {
     errors = validationResult(req)
     if (!errors.isEmpty()) {
         let nav = await utilities.getNav()
+        let classificationList = await utilities.buildClassificationList()
         res.render("./inventory/newVehicle", {
             errors,
             title: "Add Vehicle",
             nav,
+            classificationList,
             inv_make,
             inv_model,
             inv_year,

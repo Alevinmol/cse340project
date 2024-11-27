@@ -112,11 +112,12 @@ invCont.addNewClassification= async function (req, res) {
 }
 
 /* ****************************************
- *  Process new Classification
+ *  Process new vehicle
  * *************************************** */
 
 invCont.addNewVehicle= async function (req, res) {
   let nav = await utilities.getNav();
+  let classificationList = await utilities.buildClassificationList();
   const {
     inv_make,
     inv_model,
@@ -128,7 +129,7 @@ invCont.addNewVehicle= async function (req, res) {
     classification_id,
   } = req.body;
 
-  const classResult = await invModel.addNewVehicle(
+  const vehicleResult = await invModel.addVehicle(
     inv_make,
     inv_model,
     inv_year,
@@ -139,7 +140,7 @@ invCont.addNewVehicle= async function (req, res) {
     classification_id,
   );
 
-  if (classResult) {
+  if (vehicleResult) {
     req.flash(
       "notice",
       `Congratulations, you added a ${inv_make} ${inv_model} vehicle`
@@ -154,6 +155,7 @@ invCont.addNewVehicle= async function (req, res) {
     res.status(501).render("inventory/newVehicle", {
       title: "Add Vehicle",
       nav,
+      classificationList,
       errors: null,
     });
   }

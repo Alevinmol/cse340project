@@ -44,7 +44,7 @@
         max="<%= new Date().getFullYear() %>"
         required 
         placeholder="Enter the car year"
-        value="<%= locals.inv_make %>"/>
+        value="<%= locals.inv_year %>"/>
         <small>The year must be between 1886 and <%= new Date().getFullYear() %>.</small>
       </label>
       <label for="description">
@@ -57,7 +57,7 @@
       </label>
       <label for="miles">
         Miles
-        <input type="number" id="make" name="inv_make" required placeholder="Enter miles without comas" value="<%= locals.inv_miles %>"/>
+        <input type="number" id="make" name="inv_miles" required placeholder="Enter miles without comas" value="<%= locals.inv_miles %>"/>
       </label>
       <label for="color">
         Color
