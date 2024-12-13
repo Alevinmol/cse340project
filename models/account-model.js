@@ -25,6 +25,7 @@ async function checkExistingEmail(account_email){
 /* *****************************
 * Return account data using email address
 * ***************************** */
+
 async function getAccountByEmail (account_email) {
   try {
     const result = await pool.query(

@@ -36,6 +36,11 @@ app.use(session({
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
+app.use(utilities.checkJWTToken)
+
+// unit 5 login process activity
+app.use(cookieParser())
+
 // Express Messages Middleware
 app.use(require('connect-flash')())
 app.use(function(req, res, next){

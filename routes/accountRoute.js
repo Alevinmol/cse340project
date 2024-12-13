@@ -15,6 +15,9 @@ router.get("/login", utilities.handleErrors(accountController.buildLogin))
 // Deliver registration view
 router.get("/register",utilities.handleErrors(accountController.buildRegistration))
 
+// Deliver account managment view
+router.get("/" ,utilities.handleErrors(accountController.buildManagement))
+
 // Handles registration
 router.post("/register",
     regValidate.registrationRules(),
