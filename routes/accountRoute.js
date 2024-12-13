@@ -4,6 +4,10 @@ const router = new express.Router()
 const utilities = require("../utilities/")
 const accountController = require("../controllers/accountController")
 const regValidate = require("../utilities/account-validation")
+const accntCont = require("../controllers/accountController")
+
+// Deliver account management view
+router.get("/", utilities.handleErrors(accountController.buildManagement))
 
 // Deliver log in view
 router.get("/login", utilities.handleErrors(accountController.buildLogin)) 
@@ -26,7 +30,7 @@ router.post(
     "/login",
     regValidate.loginRules(),
     regValidate.checkLoginData,
-    utilities.handleErrors(accountController.accountLogin)
+    utilities.handleErrors(accntCont.accountLogin)
   )
   
 module.exports = router

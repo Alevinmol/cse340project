@@ -48,6 +48,10 @@ app.use(function(req, res, next){
   next()
 })
 
+/* Cookie parser */
+app.use(cookieParser())
+app.use(utilities.checkJWTToken)
+
 /* ***********************
  * View Engine and Templates
  *************************/
