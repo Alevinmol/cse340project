@@ -313,3 +313,40 @@ form a:hover {
     background-color: #0056b3; /* Darken background on hover */
     color: #f8f9fa; /* Change text color slightly */
 }
+
+#inventoryDisplay {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
+/* Table Header */
+#inventoryDisplay th {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  text-align: left;
+  font-size: 16px;
+}
+
+/* Table Rows */
+#inventoryDisplay td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+/* Alternating Row Colors */
+#inventoryDisplay tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#inventoryDisplay tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/* Hover Effect */
+#inventoryDisplay tr:hover {
+  background-color: #f1f1f1;
+}
