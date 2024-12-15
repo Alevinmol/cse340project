@@ -13,7 +13,7 @@
 <% } %>
 
 <div id="form">
-  <form action="/inv/newVehicle" method="post">
+  <form id="updateForm" action="/inv/update" method="post">
     <fieldset>
       <p>All fields are required</p>
       <label for="classification list">
@@ -51,6 +51,14 @@
         Description
         <input type="text" id="description" name="inv_description" required value="<%= locals.inv_description %>"/>
       </label>
+      <label for="Image">
+        Image Route
+        <input type="text" id="Image" name="inv_image" required value="<%= locals.inv_image %>"/>
+      </label>
+      <label for="thumbnail">
+        Description
+        <input type="text" id="thumbnail" name="inv_thumbnail" required value="<%= locals.inv_thumbnail %>"/>
+      </label>
       <label for="price">
         Price
         <input type="number" id="price" name="inv_price" required placeholder="Enter price without comas" value="<%= locals.inv_price %>"/>
@@ -63,7 +71,11 @@
         Color
         <input type="text" id="color" name="inv_color" required value="<%= locals.inv_color %>"/>
       </label>
-      <button type="submit">Submit</button>
+      <button type="submit" disabled>Update Vehicle</button>
+      <input type="hidden" name="inv_id"
+        <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+        <% } %>>
     </fieldset>
   </form>
 </div>
+<script src="../../js/inv-update.js"></script>

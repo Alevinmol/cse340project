@@ -103,7 +103,7 @@ validate.addNewVehicleRules = () => {
 }
 
 /**
- *  Check data and return errors or continue to add new classification 
+ *  Check data and return errors or continue to add new vehicle
  */
 
 validate.checkVehicleData = async (req, res, next) => {
@@ -119,6 +119,37 @@ validate.checkVehicleData = async (req, res, next) => {
             title: "Add Vehicle",
             nav,
             classificationList,
+            inv_make,
+            inv_model,
+            inv_year,
+            inv_description,
+            inv_price,
+            inv_miles,
+            inv_color,
+        })
+    return
+    }
+    next()
+}
+
+/**
+ *  Check data and return errors or continue to add update a vehicle information
+ */
+
+validate.checkUpdateData = async (req, res, next) => {
+    const { inv_id, inv_make, inv_model, inv_year, inv_description, inv_price, inv_miles, inv_color} =
+    req.body
+    let errors = []
+    errors = validationResult(req)
+    if (!errors.isEmpty()) {
+        let nav = await utilities.getNav()
+        let classificationList = await utilities.buildClassificationList()
+        res.render("./inventory/edit-inventory", {
+            errors,
+            title: "Edit" + inv_make + inv_model,
+            nav,
+            classificationList,
+            inv_id,
             inv_make,
             inv_model,
             inv_year,
