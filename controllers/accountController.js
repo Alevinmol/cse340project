@@ -177,4 +177,120 @@ accntCont.buildManagement = async function (req, res, next) {
   })
 }
 
+/* ***************************
+ *  Build the edit account form page
+ * ************************** */
+
+accntCont.buildEditAccountForm = async function (req, res, next) {
+  const account_id = parseInt(req.params.account_id)
+  let nav = await utilities.getNav()
+  const accountData = await accountModel.getAccountbyAccountId(account_id)
+  const accountName = `${accountData[0].account_firstname} ${accountData[0].account_lastname}`
+  res.render("./account/update-view", {
+    title: "Edit " + accountName,
+    nav,
+    errors: null,
+    account_firstname: accountData[0].account_firstname,
+    account_lastname: accountData[0].account_lastname,
+    account_email: accountData[0].account_email
+  })
+}
+
+/* ****************************************
+ *  Update account data
+ * *************************************** */
+
+accntCont.updateAccount = async function (req, res) {
+  let nav = await utilities.getNav();
+  const {
+    account_firstname,
+    account_lastname,
+    account_email,
+    account_id,
+  } = req.body;
+
+  const updateResult = await accountModel.updateAccount( 
+    account_firstname,
+    account_lastname,
+    account_email,
+    account_id
+  ); 
+
+  if (updateResult) {
+    const accountName = updateResult.account_firstname + " " + updateResult.account_lastname
+    req.flash("notice", `The ${accountName} was successfully updated.`);
+    res.redirect("/account/");
+  } else {
+    const accountName = `${account_firstname} ${account_lastname}`
+    req.flash("notice", "Sorry, the update failed.")
+    res.status(501).render("account/update-view", {
+    title: "Edit " + accountName,
+    nav,
+    errors: null,
+    account_firstname,
+    account_lastname,
+    account_email,
+    account_id,
+    });
+  }
+}
+
+/* ****************************************
+ *  Log user out
+ * *************************************** */
+
+accntCont.accountLogout = function (req, res) {
+  try {
+    // Clear the JWT cookie
+    res.clearCookie("jwt", {
+      httpOnly: true, // Ensures the cookie is not accessible via JavaScript
+      secure: process.env.NODE_ENV !== 'development', // Use `secure` in production
+    });
+
+    // Optionally flash a logout success message
+    req.flash("notice", "You have been successfully logged out.");
+
+    // Redirect to the login page or homepage
+    res.redirect("/account/login");
+  } catch (error) {
+    console.error("Error during logout:", error.message);
+    req.flash("error", "An error occurred while logging out. Please try again.");
+    res.redirect("/account/");
+  }
+};
+
+/* ****************************************
+ *  Update password data
+ * *************************************** */
+
+accntCont.updatePassword = async function (req, res) {
+  let nav = await utilities.getNav();
+  const {
+    account_password,
+    account_id,
+  } = req.body;
+
+  const updateResult = await accountModel.updatePassword( 
+    account_password,
+    account_id
+  ); 
+
+  if (updateResult) {
+    const accountName = updateResult.account_firstname + " " + updateResult.account_lastname
+    req.flash("notice", `The ${accountName} was successfully updated.`);
+    res.redirect("/account/");
+  } else {
+    const accountName = `${account_firstname} ${account_lastname}`
+    req.flash("notice", "Sorry, the update failed.")
+    res.status(501).render("account/update-view", {
+    title: "Edit " + accountName,
+    nav,
+    errors: null,
+    account_password,
+    account_id,
+    });
+  }
+}
+
+
 module.exports = accntCont;

@@ -350,3 +350,70 @@ form a:hover {
 #inventoryDisplay tr:hover {
   background-color: #f1f1f1;
 }
+
+/* General Reset for Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Styling for the Welcome Message */
+.welcome-message {
+  font-size: 2rem; /* Large text size */
+  color: #2c3e50; /* Dark slate color */
+  text-align: left; /* Center the text */
+  margin-bottom: 10px; /* Space below */
+  font-family: 'Arial', sans-serif; /* Clean font */
+  margin-left: 30px;
+}
+
+/* Styling for the Edit Account Link */
+.edit-account-link {
+  display: block; /* Make the link a block element for spacing */
+  text-align: left; /* Center align the text */
+  color: #3498db; /* Blue color */
+  font-size: 1rem; /* Standard text size */
+  margin-bottom: 20px; /* Space below the link */
+  font-family: 'Arial', sans-serif;
+  transition: color 0.3s ease; /* Smooth hover transition */
+  margin-left: 30px;
+}
+
+.edit-account-link:hover {
+  color: #1abc9c; /* Change to greenish color on hover */
+}
+
+/* Styling for Inventory Management Section */
+.inventory-title {
+  font-size: 1.5rem; /* Slightly smaller than the welcome message */
+  color: #34495e; /* Darker color for headings */
+  text-align: left; /* Align text to the left */
+  margin-top: 30px; /* Add space above */
+  margin-bottom: 10px; /* Space below */
+  font-family: 'Arial', sans-serif;
+  margin-left: 30px;
+}
+
+.inventory-link {
+  display: inline-block; /* Inline link but allows padding and margins */
+  color: #e74c3c; /* Red color for inventory link */
+  font-size: 1rem;
+  padding: 10px 20px; /* Add some padding */
+  background-color: #ecf0f1; /* Light grey background */
+  border-radius: 5px; /* Rounded corners */
+  text-align: left;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-left: 30px;
+}
+
+.inventory-link:hover {
+  background-color: #c0392b; /* Dark red background on hover */
+  color: #fff; /* White text on hover */
+}
+
+h1 {
+  margin: 10px;
+}
+a {
+  margin-right: 20px;
+}

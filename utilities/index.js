@@ -120,6 +120,19 @@ Util.checkJWTToken = (req, res, next) => {
      }
      res.locals.accountData = accountData
      res.locals.loggedin = 1
+     res.locals.account_firstname = accountData.account_firstname
+     res.locals.account_id = accountData.account_id
+     // Check account type
+     const accountType = accountData.account_type; 
+     if (accountType === "Client") {
+       res.locals.isClient = true;
+     } else if (accountType === "Employee") {
+       res.locals.isEmployee = true;
+     } else if (accountType === "Admin") {
+       res.locals.isAdmin = true;
+     } else {
+       res.locals.isClient = res.locals.isEmployee = res.locals.isManager = false;
+     }
      next()
     })
   } else {
@@ -136,6 +149,19 @@ Util.checkJWTToken = (req, res, next) => {
     next()
   } else {
     req.flash("notice", "Please Log In")
+    return res.redirect("/account/login")
+  }
+ }
+
+ /* ****************************************
+ *  Check credentials
+ * ************************************ */
+
+ Util.checkCredentials = (req, res, next) => {
+  if (res.locals.isEmployee || res.locals.isAdmin) {
+    next()
+  } else {
+    req.flash("notice", "Please Log In to access inventory")
     return res.redirect("/account/login")
   }
  }

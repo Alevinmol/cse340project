@@ -6,7 +6,7 @@ const utilities = require("../utilities/")
 const invValidate = require("../utilities/inventory-validation")
 
 // Route to build Managment view 
-router.get("/", utilities.handleErrors(invController.buildManagement));
+router.get("/", utilities.checkCredentials, utilities.handleErrors(invController.buildManagement));
 
 // Route to build Add new Classification form view
 router.get("/newClassification", utilities.handleErrors(invController.buildClassificationForm))
